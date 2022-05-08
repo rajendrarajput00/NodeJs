@@ -1,0 +1,36 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "node backend/src/index.ts",
+    "start": "ts-node-dev backend/src/index.ts",
+    "client": "npm start --prefix front-end",
+    "dev": "concurrently \"npm run start\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.3",
+    "http-errors": "^2.0.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@types/http-errors": "^1.8.2",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "concurrently": "^7.1.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.11",
+    "morgan": "^1.10.0"
+  }
+}
