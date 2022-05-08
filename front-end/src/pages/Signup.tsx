@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 export default function Signup() {
-  const postData =async (e:any) => {
-      e.preventDefault()
-      console.log(e.target.value);
-     await axios.post('https://nodereact-957b5-default-rtdb.firebaseio.com/testdatabase.json',{
-        firstName: 'Fred',
-        lastName: 'Flintstone'
-      })
+  const [formData, setFormData] = useState({});
+  const postData = async (e: any) => {
+    e.preventDefault();
+    await axios.post(
+      "https://nodereact-957b5-default-rtdb.firebaseio.com/testdatabase.json",
+      formData
+    );
+  };
+  const onHandle = (value: string, fieldName: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+        [fieldName]: value,
+      
+    }));
   };
   return (
     <div>
       <form method="post" style={{ display: "grid" }}>
         <span>Name</span>
-        <input required type="text"></input>
+        <input
+          onChange={(e) => onHandle(e.target.value, "name")}
+          required
+          type="text"
+        ></input>
         <span>Email</span>
-        <input type="email"></input>
+        <input
+          onChange={(e) => onHandle(e.target.value, "email")}
+          type="email"
+        ></input>
         <span>Password</span>
-        <input type="password"></input>
+        <input
+          onChange={(e) => onHandle(e.target.value, "password")}
+          type="password"
+        ></input>
         <button onClick={postData} type="submit">
           Submit
         </button>
