@@ -35,6 +35,11 @@ export default function Signup() {
           onChange={(e) => onHandle(e.target.value, "password")}
           type="password"
         ></input>
+        <span>Confirm Password</span>
+        <input
+          onChange={(e) => onHandle(e.target.value, "confirmaPassword")}
+          type="password"
+        ></input>
         <button onClick={postData} type="submit">
           Submit
         </button>
