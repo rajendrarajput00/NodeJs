@@ -33,3 +33,12 @@ Before we get started, keep in mind:
 [info] 
 [debug] [2022-05-08T06:47:43.465Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
 [debug] [2022-05-08T06:47:43.465Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-05-09T04:52:08.535Z] TypeError: Cannot read property 'setRawMode' of null
+    at ReadStream.setRawMode (tty.js:75:28)
+    at Interface._setRawMode (readline.js:290:16)
+    at Interface.close (readline.js:413:10)
+    at ReadStream.ontermend (readline.js:201:10)
+    at ReadStream.emit (events.js:326:22)
+    at ReadStream.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1241:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
