@@ -5,6 +5,8 @@ import { DB, PORT } from "./config";
 import { todoRouter } from "./routes/todo";
 import exampleRoute from "./routes/exampleRoute";
 import taskReminderRoute from "./routes/taskReminderRoute";
+import adminRoute from "./routes/adminRoute";
+
 import mongoose from "mongoose";
 import { errorHandler } from "./middleware/errorHandler";
 import morgan from "morgan";
@@ -15,16 +17,26 @@ import cors from "cors";
 var cron = require("node-cron");
 import { SocketConnection } from "./utils/sockeIo";
 import TaskReminderModal from "./models/TaskReminderModal";
+const path = require("path");
+const viewspath = path.join(__dirname,"/views") 
+var bodyParser = require('body-parser')
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(json());
 app.use(morgan("dev"));
 app.use(todoRouter);
+app.use("/",adminRoute)
 app.use("/api/", exampleRoute);
 app.use("/api/", taskReminderRoute);
 
 app.use(cors());
+//set views path
+app.set("views", viewspath);
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 
 app.use(() => {
   throw createHttpError(404, "Not Found");

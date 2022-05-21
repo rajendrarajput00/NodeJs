@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJS Is Fun</title>
+
+    <!-- CSS (load bootstrap from a CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body class="container">
+     <%=/* data */%> 
+
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light justify-content-between"
+      >
+        <a class="navbar-brand"></a>
+        <!-- <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+         <a class="nav-link" href="/">Home</a> 
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a> 
+      </li>
+    </ul> -->
+        <h3 style="text-align: center">Running Task</h3>
+        <button id="addNewTask" type="button" class="btn btn-primary">
+          Add New Task
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <div class="jumbotron">
+        <table class="table">
+          <caption>
+            List of users <%=/* data.length */%>
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Task Name</th>
+              <th scope="col">Task Frequency</th>
+              <th scope="col">Day</th>
+              <th scope="col">Hour</th>
+              <th scope="col">Minute</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%/*  data.forEach((item,key) => { %>
+              <tr></tr>
+              <td><%= key +1 %></td>
+              <td><%= item.TaskName %></td>
+              <td><%= item.TaskFrequency %></td>
+              <td><%= item.DayOfWeek || '*' %></td>
+              <td><%= item.Hour %></td>
+              <td><%= item.Minute %></td>
+              <td>
+                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary">Edit</button>
+              </td>
+              <% }); */%>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <footer>
+      <p class="text-center text-muted">
+        &copy; Copyright 2020 The Awesome People
+      </p>
+    </footer>
+    <%- include('./modal/addTaskModal'); %>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    $("document").ready(function () {
+      $("#addNewTask").click(function () {
+        $("#taskModal").modal("show");
+        $("#taskModal").css({ opacity: 1 });
+      });
+    });
+    
+  </script>
+</html>

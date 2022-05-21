@@ -1,0 +1,107 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="taskModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add New Task</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="post-task-reminder">
+          <div class="form-group">
+            <label for="task-name" class="col-form-label">Task Name:</label>
+            <input type="text" class="form-control" name="TaskName" id="task-name" />
+          </div>
+          <!-- <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div> -->
+          <!-- Open For Task Frequency  -->
+          <div class="form-group">
+            <label for="taks-frequency-name" class="col-form-label"
+              >Task Frequency:</label
+            >
+            <div class="input-group">
+              <select
+                data-placeholder="Select a grade..."
+                class="form-control chosen-select"
+                style="width: 50px"
+                tabindex="2"
+                name="TaskFrequency"
+              >
+                <option value=""></option>
+                <option value="everyday">Everyday</option>
+                <option value="dayofweek">DayOfWeek</option>
+              </select>
+            </div>
+          </div>
+          <!-- Close For Task Frequency  -->
+          <!-- Open For Time and Weekday  -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="hours-name" class="col-form-label">Time</label>
+                <input name="Hour" type="time" class="form-control" id="hours-name" />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="week-day-name" class="col-form-label"
+                  >Weekday</label
+                >
+                <div class="input-group">
+                  <select
+                    data-placeholder="Select a grade..."
+                    class="form-control chosen-select"
+                    style="width: 50px"
+                    tabindex="2"
+                    name="DayOfWeek"
+                  >
+                    <option value=""></option>
+                    <option value="1">Monday</option>
+                    <option value="2">Tuesday</option>
+                    <option value="3">Wednesday</option>
+                    <option value="4">Thursday</option>
+                    <option value="5">Friday</option>
+                    <option value="6">Saturday</option>
+                    <option value="0">Sunday</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--  <div class="col">
+              <div class="form-group">
+                <label for="minute-name" class="col-form-label"
+                  >Minute between 0-59</label
+                >
+                <input type="text" class="form-control" id="minute-name" />
+              </div>
+            </div> -->
+          </div>
+          <!-- Close For Time and Weekday  -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
